@@ -120,7 +120,6 @@ abstract class Translations implements Arrayable, Countable, Jsonable
      */
     public function collect(): Collection
     {
-        // @phpstan-ignore-next-line
         return new Collection($this->items);
     }
 
@@ -131,7 +130,6 @@ abstract class Translations implements Arrayable, Countable, Jsonable
      */
     public function toBase(): Collection
     {
-        // @phpstan-ignore-next-line
         return $this->dot();
     }
 

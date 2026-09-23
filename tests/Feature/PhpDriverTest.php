@@ -189,13 +189,13 @@ it('gets nested folder as subdrivers', function () {
     $subDrivers = $driver->getSubDrivers();
 
     $subDriversKeys = array_map(
-        fn ($driver) => $driver->getKey(),
+        fn ($driver) => mb_rtrim($driver->getKey(), '/\\'),
         $subDrivers
     );
 
     expect($subDriversKeys)->toEqualCanonicalizing([
-        $driver->storage->path($this->formatPath('en/')),
-        $driver->storage->path($this->formatPath('fr/')),
-        $driver->storage->path($this->formatPath('package/')),
+        $driver->storage->path($this->formatPath('en')),
+        $driver->storage->path($this->formatPath('fr')),
+        $driver->storage->path($this->formatPath('package')),
     ]);
 });
